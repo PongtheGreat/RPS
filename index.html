@@ -83,15 +83,15 @@
                         console.log("Invalid input.");
                     }
                     
-                    //LOG
-                    console.log("Loop: " +i);
-                    console.log("User: " +usrPts);
-                    console.log("Computer: " +compPts);
 
                     //If the last game has been played, check which side has the higher points
                     if (i == 4 && (usrPts > compPts)) {
+                        console.log("User: " +usrPts);
+                        console.log("Computer: " +compPts);
                         console.log("FINAL RESULT: You have beaten the computer. Congratulations!");
                     } else if (i == 4 && (compPts > usrPts)) {
+                        console.log("User: " +usrPts);
+                        console.log("Computer: " +compPts);
                         console.log("FINAL RESULT: The computer have beaten you. Try again next time :)");
                     }
                 }
