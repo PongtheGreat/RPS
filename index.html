@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+    <title>Rock, Paper or Scissor?</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        h1 {
+            color: rgba(0, 0, 0, 0.8);
+        }
+
+        p {
+            color: rgba(0, 0, 0, 0.7);
+        }
+
+        span {
+            background: #eee;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            border-radius: 2px;
+            padding: 5px;
+        }
+
+        .container {
+            min-height: 600px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .center {
+            flex: none;
+        }
+    </style>
+    <script>
+        //Main
+        function game() {
+            for (i = 0; i < 5; i++) {
+                let user = prompt("Rock | Paper | Scissor?");
+
+                rps(user);
+
+                function rps(str) {
+                    let compChoice = computer_play();
+                    let choice = str.toLowerCase();
+                    let usrPts = 0;
+                    let compPts = 0;
+
+                    if (choice == "rock") {
+                        if (compChoice == "paper") {
+                            console.log("You lose! Paper beats Rock.");
+                            compPts++;
+                        } else if (compChoice == "scissor") {
+                            console.log("You win! Rock beats Scissor.");
+                            usrPts++;
+                        } else {
+                            console.log("Draw!");
+                        }
+                    } else if (choice == "paper") {
+                        if (compChoice == "rock") {
+                            console.log("You win! Paper beats Rock.");
+                            usrPts++;
+                        } else if (compChoice == "scissor") {
+                            console.log("You lose! Scissor beats Paper.");
+                            compPts++;
+                        } else {
+                            console.log("Draw!");
+                        }
+                    } else if (choice == "scissor") {
+                        if (compChoice == "rock") {
+                            console.log("You lose! Rock beats Scissor.");
+                            compPts++;
+                        } else if (compChoice == "paper") {
+                            console.log("You win! Scissor beats Paper.");
+                            usrPts++;
+                        } else {
+                            console.log("Draw!");
+                        }
+                    } else {
+                        console.log("Invalid input.");
+                    }
+
+                    //If the last game has been played, check which side has the higher points
+                    if (i == 4 && (usrPts > compPts)) {
+                        console.log("FINAL RESULT: You have beaten the computer. Congratulations!");
+                    } else if (i == 4 && (compPts > usrPts)) {
+                        console.log("FINAL RESULT: The computer have beaten you. Try again next time :)");
+                    }
+                }
+            }
+        }
+        //Use Math.random() to calculate computer's action
+        function computer_play() {
+            let rand = Math.random();
+
+            if (rand <= 0.33) {
+                return "rock";
+            } else if (rand <= 0.66) {
+                return "paper";
+            } else if (rand <= 1) {
+                return "scissor";
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="center">
+            <h1>Rock, Paper or Scissor?</h1>
+            <p>To play, simply open up your browser's console, <span>Ctrl</span> + <span>Shift</span> + <span>J</span> on Windows /Linux or <span>CMD</span> + <span>Opt</span> + <span>J</span> on Mac and type <span>game()</span> to start.</p>
+        </div>
+    </div>
+</body>
+
+</html>
