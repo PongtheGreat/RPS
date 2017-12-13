@@ -37,6 +37,8 @@
     <script>
         //Main
         function game() {
+            let usrPts = 0;
+            let compPts = 0;
             for (i = 0; i < 5; i++) {
                 let user = prompt("Rock | Paper | Scissor?");
 
@@ -45,8 +47,7 @@
                 function rps(str) {
                     let compChoice = computer_play();
                     let choice = str.toLowerCase();
-                    let usrPts = 0;
-                    let compPts = 0;
+                    
 
                     if (choice == "rock") {
                         if (compChoice == "paper") {
@@ -81,11 +82,16 @@
                     } else {
                         console.log("Invalid input.");
                     }
+                    
 
                     //If the last game has been played, check which side has the higher points
                     if (i == 4 && (usrPts > compPts)) {
+                        console.log("User: " +usrPts);
+                        console.log("Computer: " +compPts);
                         console.log("FINAL RESULT: You have beaten the computer. Congratulations!");
                     } else if (i == 4 && (compPts > usrPts)) {
+                        console.log("User: " +usrPts);
+                        console.log("Computer: " +compPts);
                         console.log("FINAL RESULT: The computer have beaten you. Try again next time :)");
                     }
                 }
